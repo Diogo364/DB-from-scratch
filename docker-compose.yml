@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+    database:
+        build:
+            context: .
+            args:
+                - CUSTOM_PORT=${CUSTOM_PORT}
+                - CSV_DATA=${CSV_DATA}
+        image: ${IMAGE_NAME}:${IMAGE_TAG}
+        ports:
+            - "${CUSTOM_PORT}:5432"
+        environment:
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_DB=AA
+        
