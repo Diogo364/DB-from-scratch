@@ -9,14 +9,13 @@ CREATE TABLE revenda (
 );
 
 CREATE TABLE produto (
-    id SERIAL,
-    nome VARCHAR(200) NOT NULL,
+    nome VARCHAR(200),
     valor_compra VARCHAR(6),
     valor_venda VARCHAR(6),
     data_coleta VARCHAR(10) NOT NULL,
     cnpj VARCHAR(14) NOT NULL,
     unidade_medida VARCHAR(200) NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (nome, data_coleta, cnpj),
     FOREIGN KEY (cnpj) REFERENCES revenda (cnpj)
 );
 
